@@ -15,31 +15,32 @@ $(function(){
     });
 });
 
-//商品数量++
-function increase() {
-    var value = $("#quantity").val();
-    var stock = $("#stock").text();
-    value++;
-    if(value > stock){
-        value = stock;
+function increase(){
+    let quantity = $("#quantity").val();
+    let stockStr = $("#stock").text();
+    let stock = parseInt(stockStr);
+    if(quantity < stock){
+        quantity++;
     }
-    $("#quantity").val(value);
+    $("#quantity").val(quantity);
 }
 
-//商品数量--
 function reduce() {
-    var value = $("#quantity").val();
-    value--;
-    if(value == 0){
-        value = 1;
+    let quantity = $("#quantity").val();
+    if(quantity > 1){
+        quantity--;
     }
-    $("#quantity").val(value);
+    $("#quantity").val(quantity);
 }
 
 //添加购物车
-function addCart(id,price){
-    var id = $("#productId").val();
-    var price = $("#productPrice").val();
-    var quantity = $("#quantity").val();
-    window.location.href="settlement1.html";
+function addCart(productId,price){
+    let stockStr = $("#stock").text();
+    let stock = parseInt(stockStr);
+    if(stock == 0){
+        alert("库存不足！");
+        return false;
+    }
+    let quantity = $("#quantity").val();
+    window.location.href="/cart/add/"+productId+"/"+price+"/"+quantity;
 }

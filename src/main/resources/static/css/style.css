@@ -59,13 +59,13 @@ form {
     display: none;
 }
 
-/*html{
+/*html{ 
 	-webkit-filter:grayscale(100%); filter:grayscale(100%);
 }
 html { overflow-y:scroll; filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); -webkit-filter: grayscale(100%);}*/
 
 /*html{
-	filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+	filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);	
 }*/
 
 /*---------------header---------------*/
@@ -949,7 +949,7 @@ ul.menu_r li a:hover, ul.menu_r li a.now {
 }
 
 /*.ban_bg{
-	width:850px; height:430px; overflow:hidden; background-color:#FFF; float:left; -webkit-box-shadow:0 0 5px #e0e0e0; -moz-box-shadow:0 0 5px #e0e0e0; box-shadow:0 0 5px #e0e0e0;
+	width:850px; height:430px; overflow:hidden; background-color:#FFF; float:left; -webkit-box-shadow:0 0 5px #e0e0e0; -moz-box-shadow:0 0 5px #e0e0e0; box-shadow:0 0 5px #e0e0e0;  
 }
 .banner{
 	width:850px; height:430px; overflow:hidden; position:relative;
@@ -962,7 +962,7 @@ ul.menu_r li a:hover, ul.menu_r li a.now {
 .banner .ul_change_a2 li{
 	width:10px; height:10px; line-height:10px; overflow:hidden; float:left; display:inline-block; margin:0px 4px; cursor:pointer;
 }
-.banner .ul_change_a2 span{
+.banner .ul_change_a2 span{ 
 	width:10px; height:10px; line-height:10px; overflow:hidden; float:left; text-align:center; background:url(../images/b.png) no-repeat center top;
 }
 .banner .ul_change_a2 span.on { background:url(../images/b_h.png) no-repeat center top; }*/
@@ -1180,7 +1180,7 @@ ul.menu_r li a:hover, ul.menu_r li a.now {
 .h_l_img .img img {
     /*-moz-transform:scale(1,1); -webkit-transform:scale(1,1); -o-transform:scale(1,1); -ms-transform:scale(1,1); transform:scale(1,1);
 	-moz-transition-duration:600ms; -webkit-transition-duration:600ms; -o-transition-duration:600ms; -ms-transition-duration:600ms; transition-duration: 600ms;
-	-moz-transition-property:all; -webkit-transition-property:all; -o-transition-property:all; -ms-transition-property:all; transition-property:all;
+	-moz-transition-property:all; -webkit-transition-property:all; -o-transition-property:all; -ms-transition-property:all; transition-property:all; 
 	-moz-transition-timing-function:ease-out; -webkit-transition-timing-function: ease-out; -o-transition-timing-function:ease-out; -ms-transition-timing-function:ease-out; transition-timing-function:ease-out;*/
     -webkit-transition: all .5s;
     -moz-transition: all .5s;
@@ -3319,7 +3319,7 @@ table.choice tr td.td_a a:hover, table.choice tr td.td_a a.now {
 /*.l_history ul li .img img{
 	-webkit-transition:all .5s; -moz-transition:all .5s; -o-transform:all .5s; -ms-transform:all .5s; transition:all .5s;
 }
-.l_history ul li:hover .img img{
+.l_history ul li:hover .img img{	
 	-moz-transform:scale(1.1,1.1); -webkit-transform:scale(1.1,1.1); -o-transform:scale(1.1,1.1); -ms-transform:scale(1.1,1.1); transform:scale(1.1,1.1);
 }*/
 .l_history ul li .name {
