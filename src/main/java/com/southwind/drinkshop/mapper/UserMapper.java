@@ -1,6 +1,6 @@
 package com.southwind.mmall002.mapper;
 
-import com.southwind.mmall002.entity.UserAddress;
+import com.southwind.mmall002.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author 建强
  * @since 2020-05-18
  */
-public interface UserAddressMapper extends BaseMapper<UserAddress> {
+public interface UserMapper extends BaseMapper<User> {
 
 }

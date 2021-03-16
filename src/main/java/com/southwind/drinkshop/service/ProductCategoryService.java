@@ -1,8 +1,8 @@
-package com.southwind.drinkshop.service;
+package com.southwind.mmall002.service;
 
-import com.southwind.drinkshop.entity.ProductCategory;
+import com.southwind.mmall002.entity.ProductCategory;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.southwind.drinkshop.vo.ProductCategoryVO;
+import com.southwind.mmall002.vo.ProductCategoryVO;
 
 import java.util.List;
 
@@ -11,12 +11,9 @@ import java.util.List;
  *  服务类
  * </p>
  *
- * @author Yihong
- * @since 2021-03-06
+ * @author 建强
+ * @since 2020-05-18
  */
 public interface ProductCategoryService extends IService<ProductCategory> {
     public List<ProductCategoryVO> getAllProductCategoryVO();
 }
-
-
-

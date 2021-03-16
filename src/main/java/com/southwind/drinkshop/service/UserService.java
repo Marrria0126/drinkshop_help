@@ -1,6 +1,6 @@
 package com.southwind.mmall002.service;
 
-import com.southwind.mmall002.entity.OrderDetail;
+import com.southwind.mmall002.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author 建强
  * @since 2020-05-18
  */
-public interface OrderDetailService extends IService<OrderDetail> {
+public interface UserService extends IService<User> {
 
 }

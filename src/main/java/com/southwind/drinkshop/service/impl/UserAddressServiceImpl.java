@@ -1,8 +1,8 @@
-package com.southwind.drinkshop.service.impl;
+package com.southwind.mmall002.service.impl;
 
-import com.southwind.drinkshop.entity.UserAddress;
-import com.southwind.drinkshop.mapper.UserAddressMapper;
-import com.southwind.drinkshop.service.UserAddressService;
+import com.southwind.mmall002.entity.UserAddress;
+import com.southwind.mmall002.mapper.UserAddressMapper;
+import com.southwind.mmall002.service.UserAddressService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
  *  服务实现类
  * </p>
  *
- * @author Yihong
- * @since 2021-03-06
+ * @author 建强
+ * @since 2020-05-18
  */
 @Service
 public class UserAddressServiceImpl extends ServiceImpl<UserAddressMapper, UserAddress> implements UserAddressService {

@@ -1,6 +1,6 @@
-package com.southwind.drinkshop.mapper;
+package com.southwind.mmall002.mapper;
 
-import com.southwind.drinkshop.entity.OrderDetail;
+import com.southwind.mmall002.entity.OrderDetail;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -8,8 +8,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  *  Mapper 接口
  * </p>
  *
- * @author Yihong
- * @since 2021-03-06
+ * @author 建强
+ * @since 2020-05-18
  */
 public interface OrderDetailMapper extends BaseMapper<OrderDetail> {
 

@@ -1,4 +1,4 @@
-package com.southwind.drinkshop.vo;
+package com.southwind.mmall002.vo;
 
 import lombok.Data;
 
@@ -13,8 +13,8 @@ public class ProductCategoryVO {
     private String topImg;
     private List<ProductVO> productVOList;
 
-     public ProductCategoryVO(Integer id, String name) {
-         this.id = id;
-         this.name = name;
-     }
+    public ProductCategoryVO(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

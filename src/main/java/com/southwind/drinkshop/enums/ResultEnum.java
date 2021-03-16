@@ -1,4 +1,4 @@
-package com.southwind.drinkshop.enums;
+package com.southwind.mmall002.enums;
 
 import lombok.Getter;
 

@@ -1,6 +1,9 @@
-package com.southwind.drinkshop.filter;
+package com.southwind.mmall002.filter;
+
+import com.southwind.mmall002.entity.User;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -19,4 +22,3 @@ public class UserFilter implements Filter {
         }
     }
 }
-

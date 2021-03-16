@@ -1,6 +1,6 @@
-package com.southwind.drinkshop.service;
+package com.southwind.mmall002.service;
 
-import com.southwind.drinkshop.entity.UserAddress;
+import com.southwind.mmall002.entity.UserAddress;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -8,8 +8,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  *  服务类
  * </p>
  *
- * @author Yihong
- * @since 2021-03-06
+ * @author 建强
+ * @since 2020-05-18
  */
 public interface UserAddressService extends IService<UserAddress> {
 

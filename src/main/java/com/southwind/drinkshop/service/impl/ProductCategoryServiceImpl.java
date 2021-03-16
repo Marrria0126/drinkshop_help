@@ -1,18 +1,31 @@
-package com.southwind.drinkshop.service.impl;
+package com.southwind.mmall002.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.southwind.drinkshop.entity.Product;
-import com.southwind.drinkshop.entity.ProductCategory;
-import com.southwind.drinkshop.mapper.ProductCategoryMapper;
-import com.southwind.drinkshop.mapper.ProductMapper;
-import com.southwind.drinkshop.service.ProductCategoryService;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
+import com.baomidou.mybatisplus.extension.conditions.query.QueryChainWrapper;
+import com.baomidou.mybatisplus.extension.conditions.update.LambdaUpdateChainWrapper;
+import com.baomidou.mybatisplus.extension.conditions.update.UpdateChainWrapper;
+import com.southwind.mmall002.entity.Product;
+import com.southwind.mmall002.entity.ProductCategory;
+import com.southwind.mmall002.mapper.ProductCategoryMapper;
+import com.southwind.mmall002.mapper.ProductMapper;
+import com.southwind.mmall002.service.ProductCategoryService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.southwind.drinkshop.vo.ProductCategoryVO;
-import com.southwind.drinkshop.vo.ProductVO;
+import com.southwind.mmall002.service.ProductService;
+import com.southwind.mmall002.vo.ProductCategoryVO;
+import com.southwind.mmall002.vo.ProductVO;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -20,8 +33,8 @@ import java.util.stream.Collectors;
  *  服务实现类
  * </p>
  *
- * @author Yihong
- * @since 2021-03-06
+ * @author 建强
+ * @since 2020-05-18
  */
 @Service
 public class ProductCategoryServiceImpl extends ServiceImpl<ProductCategoryMapper, ProductCategory> implements ProductCategoryService {
@@ -54,7 +67,7 @@ public class ProductCategoryServiceImpl extends ServiceImpl<ProductCategoryMappe
                             e.getFileName()
                     )).collect(Collectors.toList());
             levelOneVO.get(i).setProductVOList(productVOList);
-       }
+        }
         for (ProductCategoryVO levelOneProductCategoryVO : levelOneVO) {
             wrapper = new QueryWrapper();
             wrapper.eq("type",2);
@@ -72,6 +85,6 @@ public class ProductCategoryServiceImpl extends ServiceImpl<ProductCategoryMappe
             }
         }
         return levelOneVO;
-
     }
+
 }

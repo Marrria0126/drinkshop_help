@@ -1,46 +1,45 @@
-package com.southwind.drinkshop.service.impl;
+package com.southwind.mmall002.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.southwind.drinkshop.entity.*;
-import com.southwind.drinkshop.mapper.*;
-import com.southwind.drinkshop.service.OrderService;
+import com.southwind.mmall002.entity.*;
+import com.southwind.mmall002.mapper.*;
+import com.southwind.mmall002.service.OrderService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.southwind.mmall002.vo.OrderDetailVO;
+import com.southwind.mmall002.vo.OrderVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 /**
  * <p>
  *  服务实现类
  * </p>
  *
- * @author Yihong
- * @since 2021-03-06
+ * @author 建强
+ * @since 2020-05-18
  */
 @Service
 public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implements OrderService {
 
     @Autowired
     private UserAddressMapper userAddressMapper;
-
     @Autowired
     private CartMapper cartMapper;
-
     @Autowired
     private OrderMapper orderMapper;
-
     @Autowired
     private OrderDetailMapper orderDetailMapper;
-
     @Autowired
     private ProductMapper productMapper;
 
     @Override
-    public boolean save(Orders orders, User1 user,String address,String remark) {
-
+    public boolean save(Orders orders, User user,String address,String remark) {
         //判断是新地址还是老地址
         if(orders.getUserAddress().equals("newAddress")){
             //存入数据库
@@ -93,4 +92,42 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implement
         return true;
     }
 
+    @Override
+    public List<OrderVO> findAllOrederVOByUserId(Integer id) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("user_id",id);
+        List<Orders> ordersList = orderMapper.selectList(wrapper);
+        //VO转换
+//        List<OrderVO> orderVOList = new ArrayList<>();
+//        for (Orders orders : ordersList) {
+//            OrderVO orderVO = new OrderVO();
+//            BeanUtils.copyProperties(orders,orderVO);
+//            orderVOList.add(orderVO);
+//        }
+
+        List<OrderVO> orderVOList = ordersList.stream()
+                .map(e -> new OrderVO(
+                        e.getId(),
+                        e.getLoginName(),
+                        e.getSerialnumber(),
+                        e.getUserAddress(),
+                        e.getCost()
+                )).collect(Collectors.toList());
+        //封装OrderDetail
+        for (OrderVO orderVO : orderVOList) {
+            QueryWrapper wrapper1 = new QueryWrapper();
+            wrapper1.eq("order_id",orderVO.getId());
+            List<OrderDetail> orderDetailList = orderDetailMapper.selectList(wrapper1);
+            List<OrderDetailVO> orderDetailVOList = new ArrayList<>();
+            for (OrderDetail orderDetail : orderDetailList) {
+                OrderDetailVO orderDetailVO = new OrderDetailVO();
+                Product product = productMapper.selectById(orderDetail.getProductId());
+                BeanUtils.copyProperties(product,orderDetailVO);
+                BeanUtils.copyProperties(orderDetail,orderDetailVO);
+                orderDetailVOList.add(orderDetailVO);
+            }
+            orderVO.setOrderDetailVOList(orderDetailVOList);
+        }
+        return orderVOList;
+    }
 }

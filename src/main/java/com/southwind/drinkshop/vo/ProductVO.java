@@ -1,4 +1,4 @@
-package com.southwind.drinkshop.vo;
+package com.southwind.mmall002.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

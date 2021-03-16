@@ -1,4 +1,4 @@
-package com.southwind.drinkshop.vo;
+package com.southwind.mmall002.vo;
 
 import lombok.Data;
 
@@ -13,4 +13,3 @@ public class CartVO {
     private String fileName;
     private Integer stock;
 }
-

@@ -1,6 +1,6 @@
-package com.southwind.drinkshop.config;
+package com.southwind.mmall002.config;
 
-import com.southwind.drinkshop.filter.UserFilter;
+import com.southwind.mmall002.filter.UserFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

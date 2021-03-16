@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+
+import com.southwind.mmall002.enums.GenderEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -21,43 +23,60 @@ import lombok.experimental.Accessors;
 @Data
   @EqualsAndHashCode(callSuper = false)
   @Accessors(chain = true)
-public class UserAddress implements Serializable {
+public class User implements Serializable {
 
     private static final long serialVersionUID=1L;
 
       /**
-     * 主键id
+     * 主键
      */
         @TableId(value = "id", type = IdType.AUTO)
       private Integer id;
 
       /**
-     * 用户主键
+     * 登录名
      */
-      private Integer userId;
+      private String loginName;
 
       /**
-     * 地址
+     * 用户名
      */
-      private String address;
+      private String userName;
 
       /**
-     * 备注
+     * 密码
      */
-      private String remark;
+      private String password;
 
       /**
-     * 是否是默认地址（1:是 0否）
+     * 性别(1:男 0：女)
      */
-      private Integer isdefault;
+      private GenderEnum gender;
+      @TableField(exist = false)
+      private Integer genderCode;
 
       /**
-     * 创建时间
+     * 身份证号
      */
+      private String identityCode;
+
+      /**
+     * 邮箱
+     */
+      private String email;
+
+      /**
+     * 手机
+     */
+      private String mobile;
+
+    private String fileName;
+
       @TableField(fill = FieldFill.INSERT)
       private LocalDateTime createTime;
 
       @TableField(fill = FieldFill.INSERT_UPDATE)
       private LocalDateTime updateTime;
+
 
 }

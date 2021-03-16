@@ -1,35 +1,52 @@
-package com.southwind.drinkshop.entity;
-
-import java.io.Serializable;
+package com.southwind.mmall002.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 /**
  * <p>
  * 
  * </p>
  *
- * @author Yihong
- * @since 2021-03-06
+ * @author 建强
+ * @since 2020-05-18
  */
 @Data
   @EqualsAndHashCode(callSuper = false)
-    public class OrderDetail implements Serializable {
+  @Accessors(chain = true)
+public class OrderDetail implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-  @TableId(type = IdType.AUTO)
-    private Integer id;
+    private static final long serialVersionUID=1L;
 
-    private Integer orderId;
+      /**
+     * 主键
+     */
+        @TableId(value = "id", type = IdType.AUTO)
+      private Integer id;
 
-    private Integer productId;
+      /**
+     * 订单主键
+     */
+      private Integer orderId;
 
-    private Integer quantity;
+      /**
+     * 商品主键
+     */
+      private Integer productId;
 
-    private Float cost;
+      /**
+     * 数量
+     */
+      private Integer quantity;
+
+      /**
+     * 消费
+     */
+      private Float cost;
 
 
 }

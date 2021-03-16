@@ -1,7 +1,9 @@
-package com.southwind.drinkshop.enums;
+package com.southwind.mmall002.enums;
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
+import lombok.Data;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 public enum GenderEnum {

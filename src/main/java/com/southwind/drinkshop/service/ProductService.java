@@ -1,7 +1,9 @@
-package com.southwind.drinkshop.service;
+package com.southwind.mmall002.service;
 
-import com.southwind.drinkshop.entity.Product;
+import com.southwind.mmall002.entity.Product;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.southwind.mmall002.vo.TableDataVO;
+import com.southwind.mmall002.vo.TableProductVO;
 
 import java.util.List;
 
@@ -10,18 +12,14 @@ import java.util.List;
  *  服务类
  * </p>
  *
- * @author Yihong
- * @since 2021-03-06
+ * @author 建强
+ * @since 2020-05-18
  */
 public interface ProductService extends IService<Product> {
-    public List<Product> findByCategoryId(String type, Integer categoryId);
-
-   // List<Product> findByCategoryId(String type, Integer categoryId);
+    public List<Product> findByCategoryId(String type,Integer categoryId);
 
     /**
      * 后台管理系统返回商品数据
      */
-   // public TableDataVO<TableProductVO> findAllTableData(Integer page,Integer limit);
-
-
+    public TableDataVO<TableProductVO> findAllTableData(Integer page,Integer limit);
 }

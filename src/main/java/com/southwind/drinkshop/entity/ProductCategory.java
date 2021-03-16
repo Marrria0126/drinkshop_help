@@ -1,9 +1,8 @@
-package com.southwind.drinkshop.entity;
-
-import java.io.Serializable;
+package com.southwind.mmall002.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -13,24 +12,36 @@ import lombok.experimental.Accessors;
  * 
  * </p>
  *
- * @author Yihong
- * @since 2021-03-06
+ * @author 建强
+ * @since 2020-05-18
  */
 @Data
   @EqualsAndHashCode(callSuper = false)
   @Accessors(chain = true)
-    public class ProductCategory implements Serializable {
+public class ProductCategory implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID=1L;
 
-   @TableId(type = IdType.AUTO)
-    private Integer id;
+      /**
+     * 主键
+     */
+        @TableId(value = "id", type = IdType.AUTO)
+      private Integer id;
 
-    private String name;
+      /**
+     * 名称
+     */
+      private String name;
 
-    private Integer parentId;
+      /**
+     * 父级目录id
+     */
+      private Integer parentId;
 
-    private Integer type;
+      /**
+     * 级别(1:一级 2：二级 3：三级)
+     */
+      private Integer type;
 
 
 }

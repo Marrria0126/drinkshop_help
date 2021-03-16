@@ -1,31 +1,32 @@
-package com.southwind.drinkshop.entity;
+package com.southwind.mmall002.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
-
-import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 /**
  * <p>
  * 
  * </p>
  *
- * @author Yihong
- * @since 2021-03-06
+ * @author 建强
+ * @since 2020-05-18
  */
 @Data
   @EqualsAndHashCode(callSuper = false)
-    public class Cart implements Serializable {
+  @Accessors(chain = true)
+public class Cart implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID=1L;
 
-    @TableId(type = IdType.AUTO)
-    private Integer id;
+      @TableId(value = "id", type = IdType.AUTO)
+      private Integer id;
 
     private Integer productId;
 

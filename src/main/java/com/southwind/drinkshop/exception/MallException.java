@@ -1,6 +1,6 @@
-package com.southwind.drinkshop.exception;
+package com.southwind.mmall002.exception;
 
-import com.southwind.drinkshop.enums.ResultEnum;
+import com.southwind.mmall002.enums.ResultEnum;
 
 /**
  * unchecked 不用去处理，交给JVM去处理，继承 RuntimeException
@@ -8,12 +8,9 @@ import com.southwind.drinkshop.enums.ResultEnum;
  */
 public class MallException extends RuntimeException {
     public MallException(String error) {
-
         super(error);
     }
     public MallException(ResultEnum resultEnum) {
-
         super(resultEnum.getMsg());
     }
 }
-

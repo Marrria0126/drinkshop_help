@@ -1,45 +1,71 @@
-package com.southwind.drinkshop.entity;
+package com.southwind.mmall002.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
-
-import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 /**
  * <p>
  * 
  * </p>
  *
- * @author Yihong
- * @since 2021-03-06
+ * @author 建强
+ * @since 2020-05-18
  */
 @Data
   @EqualsAndHashCode(callSuper = false)
-    public class Orders implements Serializable {
+  @Accessors(chain = true)
+public class Orders implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @TableId(type = IdType.AUTO)
-    private Integer id;
+    private static final long serialVersionUID=1L;
 
-    private Integer userId;
+      /**
+     * 主键
+     */
+        @TableId(value = "id", type = IdType.AUTO)
+      private Integer id;
 
-    private String loginName;
+      /**
+     * 用户主键
+     */
+      private Integer userId;
 
-    private String userAddress;
+      /**
+     * 用户名
+     */
+      private String loginName;
 
-    private Float cost;
+      /**
+     * 用户地址
+     */
+      private String userAddress;
 
-    private String serialnumber;
+      /**
+     * 总金额
+     */
+      private Float cost;
 
-      @TableField(fill = FieldFill.INSERT)
+      /**
+     * 订单号
+     */
+      private String serialnumber;
+
+      /**
+     * 创建时间
+     */
+        @TableField(fill = FieldFill.INSERT)
       private LocalDateTime createTime;
 
-      @TableField(fill = FieldFill.INSERT_UPDATE)
+      /**
+     * 更新时间
+     */
+        @TableField(fill = FieldFill.INSERT_UPDATE)
       private LocalDateTime updateTime;
 
 

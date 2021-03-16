@@ -1,4 +1,4 @@
-package com.southwind.drinkshop;
+package com.southwind.mmall002;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.FieldFill;
@@ -10,28 +10,28 @@ import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.po.TableFill;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 
+import javax.swing.text.Style;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args){
-
+    public static void main(String[] args) {
         AutoGenerator autoGenerator = new AutoGenerator();
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
-        dataSourceConfig.setDbType(DbType.SQL_SERVER);
-        dataSourceConfig.setDriverName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        dataSourceConfig.setUsername("sa");
-        dataSourceConfig.setPassword("1234");
-        dataSourceConfig.setUrl("jdbc:sqlserver://localhost:1433;databaseName=drinkshop");
+        dataSourceConfig.setDbType(DbType.MYSQL);
+        dataSourceConfig.setDriverName("com.mysql.cj.jdbc.Driver");
+        dataSourceConfig.setUsername("root");
+        dataSourceConfig.setPassword("123456");
+        dataSourceConfig.setUrl("jdbc:mysql://localhost:3306/mmall?useUnicode=true&characterEncoding=UTF-8");
         autoGenerator.setDataSource(dataSourceConfig);
         GlobalConfig globalConfig = new GlobalConfig();
         globalConfig.setOpen(true);
         globalConfig.setOutputDir(System.getProperty("user.dir")+"/src/main/java");
-        globalConfig.setAuthor("Yihong");
+        globalConfig.setAuthor("建强");
         globalConfig.setServiceName("%sService");
         autoGenerator.setGlobalConfig(globalConfig);
         PackageConfig packageConfig = new PackageConfig();
-        packageConfig.setParent("com.southwind.drinkshop");
+        packageConfig.setParent("com.southwind.mmall002");
         packageConfig.setEntity("entity");
         packageConfig.setMapper("mapper");
         packageConfig.setController("controller");
@@ -44,7 +44,7 @@ public class Main {
         strategyConfig.setColumnNaming(NamingStrategy.underline_to_camel);
 
         List<TableFill> list = new ArrayList<>();
-        TableFill tableFill1 = new TableFill("create_time", FieldFill.INSERT);
+        TableFill tableFill1 = new TableFill("create_time",FieldFill.INSERT);
         TableFill tableFill2 = new TableFill("update_time",FieldFill.INSERT_UPDATE);
         list.add(tableFill1);
         list.add(tableFill2);
@@ -53,9 +53,5 @@ public class Main {
         autoGenerator.setStrategy(strategyConfig);
 
         autoGenerator.execute();
-
-
     }
 }
-
-

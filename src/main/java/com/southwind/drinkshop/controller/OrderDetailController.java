@@ -1,4 +1,4 @@
-package com.southwind.drinkshop.controller;
+package com.southwind.mmall002.controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,11 +10,11 @@ import org.springframework.stereotype.Controller;
  *  前端控制器
  * </p>
  *
- * @author Yihong
- * @since 2021-03-06
+ * @author 建强
+ * @since 2020-05-18
  */
 @Controller
-@RequestMapping("//orderDetail")
+@RequestMapping("/orderDetail")
 public class OrderDetailController {
 
 }
