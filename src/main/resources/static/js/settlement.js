@@ -54,12 +54,11 @@ $(function(){
 //         }
 //     });
 // }
-
-function addQuantity(obj){
+function addQuantity(obj) {
     let index = $(".car_btn_2").index(obj);
     let quantity = parseInt($(".car_ipt").eq(index).val());
     let stock = parseInt($(".productStock").eq(index).val());
-    if(quantity == stock){
+    if (quantity == stock) {
         alert("库存不足！");
         return false;
     }
@@ -71,37 +70,6 @@ function addQuantity(obj){
     //基于jQeury的Ajax
     //基于js的Ajax
     //基于Vue的axios
-    $.ajax({
-       url:"/cart/update/"+id+"/"+quantity+"/"+cost,
-       type:"POST",
-       success:function (data) {
-            if(data == "success"){
-                $(".qprice").eq(index).text('￥'+cost);
-                $(".car_ipt").eq(index).val(quantity);
-
-                let array = $(".qprice");
-                let totalCost = 0;
-                for(let i = 0;i < array.length;i++){
-                    let val = parseInt($(".qprice").eq(i).html().substring(1));
-                    totalCost += val;
-                }
-                $("#totalprice").html("￥"+totalCost);
-            }
-       }
-    });
-}
-
-function subQuantity(obj){
-    let index = $(".car_btn_1").index(obj);
-    let quantity = parseInt($(".car_ipt").eq(index).val());
-    if(quantity == 1){
-        alert("至少选择一件商品！");
-        return false;
-    }
-    quantity--;
-    let price = parseFloat($(".productPrice").eq(index).val());
-    let cost = quantity * price
-    let id = parseInt($(".id").eq(index).val());
     $.ajax({
         url:"/cart/update/"+id+"/"+quantity+"/"+cost,
         type:"POST",
@@ -122,15 +90,8 @@ function subQuantity(obj){
     });
 }
 
-function removeCart(obj){
-    let index = $(".delete").index(obj);
-    let id = parseInt($(".id").eq(index).val());
-    if(confirm("是否确定删除?")){
-        window.location.href = "/cart/deleteById/"+id;
-    }
-}
 
-// //商品数量--
+//商品数量--
 // function subQuantity(obj){
 //     var index = $(".car_btn_1").index(obj);
 //     var price = parseInt($(".productPrice").eq(index).val());
@@ -169,7 +130,37 @@ function removeCart(obj){
 //         }
 //     });
 // }
+function subQuantity(obj) {
+    let index = $(".car_btn_1").index(obj);
+    let quantity = parseInt($(".car_ipt").eq(index).val());
+    if (quantity == 1) {
+        alert("至少选择一件商品！");
+        return false;
+    }
+    quantity--;
+    let price = parseFloat($(".productPrice").eq(index).val());
+    let cost = quantity * price;
+    let id = parseInt($(".id").eq(index).val());
 
+    $.ajax({
+        url:"/cart/update/"+id+"/"+quantity+"/"+cost,
+        type:"POST",
+        success:function (data) {
+            if(data == "success"){
+                $(".qprice").eq(index).text('￥'+cost);
+                $(".car_ipt").eq(index).val(quantity);
+
+                let array = $(".qprice");
+                let totalCost = 0;
+                for(let i = 0;i < array.length;i++){
+                    let val = parseInt($(".qprice").eq(i).html().substring(1));
+                    totalCost += val;
+                }
+                $("#totalprice").html("￥"+totalCost);
+            }
+        }
+    });
+}
 //移出购物车
 // function removeCart(obj){
 //     var index = $(".delete").index(obj);
@@ -178,6 +169,14 @@ function removeCart(obj){
 //         window.location.href = "/product/removeCart/"+id;
 //     }
 // }
+
+    function removeCart(obj) {
+        let index = $(".delete").index(obj);
+        let id = parseInt($(".id").eq(index).val());
+        if (confirm("是否确定删除?")) {
+            window.location.href = "/cart/deleteById/" + id;
+        }
+    }
 
 function settlement2() {
     var totalCost = $("#totalprice").text();

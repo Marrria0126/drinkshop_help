@@ -18,13 +18,13 @@
             <div class="left_m">
                 <div class="left_m_t t_bg1">订单中心</div>
                 <ul>
-                    <li><a href="/orders/list" >我的订单</a></li>
+                    <li><a href="/orderList.html" >我的订单</a></li>
                 </ul>
             </div>
             <div class="left_m">
                 <div class="left_m_t t_bg2">会员中心</div>
                 <ul>
-                    <li><a href="/user/userInfo" >用户信息</a></li>
+                    <li><a href="/userInfo.html" >用户信息</a></li>
                     <li><a href="#" >地址管理</a></li>
                 </ul>
             </div>
@@ -46,13 +46,36 @@
                     <td width="25%">操作</td>
                 </tr>
 
-                <tr th:each="address:${addressList}">
-                    <td th:text="${address.id}"></td>
-                    <td th:text="${address.address}"></td>
-                    <td th:text="${address.createTime}"></td>
-                    <td th:text="${address.remark}">公司</td>
-                    <td th:if="${address.isdefault == 1}">是</td>
-                    <td th:if="${address.isdefault == 0}">否</td>
+                <tr>
+                    <td>1</td>
+                    <td>小寨</td>
+                    <td>2020-01-01</td>
+                    <td>公司</td>
+                    <td>是</td>
+                    <td>
+                        <a href="">删除</a>
+                        <a href="">修改</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>小寨</td>
+                    <td>2020-01-01</td>
+                    <td>公司</td>
+                    <td>是</td>
+                    <td>
+                        <a href="">删除</a>
+                        <a href="">修改</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>小寨</td>
+                    <td>2020-01-01</td>
+                    <td>公司</td>
+                    <td>是</td>
                     <td>
                         <a href="">删除</a>
                         <a href="">修改</a>
